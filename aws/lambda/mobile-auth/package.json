@@ -1,0 +1,19 @@
+{
+  "name": "mobile-auth",
+  "version": "1.0.0",
+  "description": "Lambda Function to Authenticate Resources",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lamdba",
+    "serverless"
+  ],
+  "author": "Rolando Carias",
+  "license": "ISC",
+  "devDependencies": {
+    "aws-sdk": "^2.125.0",
+    "bluebird": "^3.5.0"
+  }
+}
