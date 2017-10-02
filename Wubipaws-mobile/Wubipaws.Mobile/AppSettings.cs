@@ -55,7 +55,7 @@ namespace Wubipaws.Mobile
 	{
 		public AppSettings ()
 		{
-			this.requestVerificationToken = "1000:3kLqjsDOzjkLlnshL8CQaJHj3NAeC6zc:td5Fu5FpAidkNVi2sW3wGNHK9JZa4R32";
+			this.requestVerificationToken = "<your_jwt>";
 
 		}
 
