@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:local="clr-namespace:Wubipaws.Mobile;assembly=Wubipaws.Mobile" 
+		x:Class="Wubipaws.Mobile.PetServicesListPage">
+	<ContentPage.Content>
+	<StackLayout>
+		
+		<ListView x:Name="PetServicesList"  ItemsSource="{Binding PetServices}"  
+ HasUnevenRows="true" 
+ Header="{Binding HeaderText}"
+ ItemTapped="OnItemSelected"  RowHeight="125">
+  <ListView.HeaderTemplate >
+      <DataTemplate>
+        <StackLayout Orientation="Horizontal"
+            Padding="10,5,5,10"
+            BackgroundColor="#E91E63">
+          <Label FontAttributes="Bold" 
+          TextColor="White"
+          FontSize="Medium" Text="{Binding .}"/><!-- refers to "Binding Intro" in the `Header` attribute -->
+        </StackLayout>
+      </DataTemplate>
+    </ListView.HeaderTemplate>
+    <ListView.ItemTemplate>
+      <DataTemplate>
+      	<ViewCell>
+      		<Grid Padding="5">
+	      		<Grid.RowDefinitions>
+				    <RowDefinition Height="64"></RowDefinition>
+				    <RowDefinition Height="*"></RowDefinition>
+		    	</Grid.RowDefinitions>
+		    	<Grid.ColumnDefinitions>
+				    <ColumnDefinition Width="64"></ColumnDefinition>
+				    <ColumnDefinition Width="*"></ColumnDefinition>
+				    <ColumnDefinition Width="32"></ColumnDefinition>
+			    </Grid.ColumnDefinitions>
+			    <Image Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" VerticalOptions="Center"  Aspect="AspectFit" Source="{Binding Path=[imageFile]}"/>
+			   	<StackLayout  Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"> 
+			   	    <Label  TextColor="#E91E63" FontSize="Large" FontAttributes="Bold" Text="{Binding Path=[name]}" LineBreakMode="TailTruncation"></Label>
+			    	<Label  TextColor="#455A64" Text="{Binding Path=[description]}" Font="Small"   LineBreakMode="WordWrap"></Label>
+ 			   	</StackLayout>
+      			<Image Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" VerticalOptions="Center" HeightRequest="32" WidthRequest="32" Aspect="AspectFit" Source="{local:ImageResource ios_arrow_right.png}"/>
+ 			   	
+			   </Grid>
+      	</ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+	</StackLayout>
+ 
+	</ContentPage.Content>
+</ContentPage>

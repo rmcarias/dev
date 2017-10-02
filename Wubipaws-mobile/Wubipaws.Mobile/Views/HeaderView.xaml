@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+x:Class="Wubipaws.Mobile.HeaderView"
+Padding="0,0,0,0"
+BackgroundColor="White"
+>
+	<ContentView.Content>
+		<StackLayout HorizontalOptions="Center">
+				<Image Source="wubi_header_logo.png"  Aspect="AspectFill"/>
+					
+				</StackLayout>
+	</ContentView.Content>
+</ContentView>

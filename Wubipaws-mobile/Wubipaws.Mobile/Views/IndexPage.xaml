@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+x:Class="Wubipaws.Mobile.IndexPage"
+xmlns:local="clr-namespace:Wubipaws.Mobile;assembly=Wubipaws.Mobile"
+BackgroundColor="#37474F"
+Title="Welcome"
+>
+	<ContentPage.Content>
+			<StackLayout x:Name="root">
+			
+				<local:HeaderView />
+				<StackLayout Padding="5">
+					<Button x:Name="ButtonShowLogin" Text="I already have an account" Style="{StaticResource ButtonPrimaryStyle}"  />
+					<Button x:Name="ButtonShowRegister" Text="Or Register with us" Style="{StaticResource ButtonSecondaryStyle}" />
+				
+				</StackLayout>
+
+			</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

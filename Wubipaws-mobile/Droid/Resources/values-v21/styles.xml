@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <!--
+        Base application theme for API 21+. This theme replaces
+        MyTheme from resources/values/styles.xml on API 21+ devices.
+    -->
+  <style name="WubiPawsAppTheme" parent="android:Theme.Material.Light">
+   <!-- Base theme applied no matter what API -->
+  
+   
+    <!--We will be using the toolbar so no need to show ActionBar
+     <item name="android:windowNoTitle">true</item>
+    -->
+    <item name="android:windowActionBar">true</item>
+    <!-- Set theme colors from http://www.google.com/design/spec/style/color.html#color-color-palette-->
+    <!-- colorPrimary is used for the default action bar background -->
+    <item name="android:colorPrimary">#fafafa</item>
+    <!-- colorPrimaryDark is used for the status bar -->
+    <item name="android:colorPrimaryDark">#1976D2</item>
+    <!-- colorAccent is used as the default value for colorControlActivated
+         which is used to tint widgets -->
+    <item name="android:colorAccent">#FF4081</item>
+     <!-- You can also set colorControlNormal, colorControlActivated
+         colorControlHighlight and colorSwitchThumbNormal. -->
+    <item name="android:windowContentTransitions">true</item>
+    <item name="android:windowAllowEnterTransitionOverlap">true</item>
+    <item name="android:windowAllowReturnTransitionOverlap">true</item>
+    <item name="android:windowSharedElementEnterTransition">@android:transition/move</item>
+    <item name="android:windowSharedElementExitTransition">@android:transition/move</item>
+  </style>
+</resources>
+

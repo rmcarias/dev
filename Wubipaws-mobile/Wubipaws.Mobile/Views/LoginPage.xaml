@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+x:Class="Wubipaws.Mobile.LoginPage"
+xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+xmlns:local="clr-namespace:Wubipaws.Mobile;assembly=Wubipaws.Mobile"
+Title="Sign In"
+BackgroundColor="#37474F">
+	<ContentPage.Content>
+<ScrollView>
+		<StackLayout>
+			<local:HeaderView />
+			<StackLayout   Padding="8,0,8,0">
+                    <Frame BackgroundColor="White" Padding="3" HasShadow="false" OutlineColor="Transparent">
+						<Frame.Content>	
+						   <StackLayout Spacing="0">					 
+							<local:FormHeaderBar
+									Text="SIGN IN"  />
+
+		                    <ContentView>
+		                        <ContentView Padding="5">
+		                         	<StackLayout>
+		                         	    <Label  Style="{StaticResource LabelDefaultStyle}"  Text="Email"></Label>
+		                         	    <controls:ExtendedEntry 
+		                         	    	Placeholder="myemail@wubipaws.com" 
+				                            HasBorder="true"
+											MaxLength="80"
+											x:Name="TextEmail"
+				                            Text="{Binding UserEmail}" />
+		                         	    
+										  <Label Style="{StaticResource LabelDefaultStyle}"  Text="Password" />
+								
+										  <controls:ExtendedEntry 
+										  	Placeholder="mysecurepassword" 
+				                            HasBorder="true"
+				                            HorizontalTextAlignment="Start"
+				                            x:Name="TextPassword"
+				                            MaxLength="12"
+				                            IsPassword="true"
+				                           Text="{Binding UserPassword}" />
+		                         	</StackLayout>
+		                        </ContentView>
+		                    </ContentView>
+						
+							
+				             </StackLayout>
+				       </Frame.Content>
+					</Frame>
+					<Button IsEnabled="{Binding IsBusy, Mode=TwoWay}"   Command="{Binding LogInCommand}"  x:Name="ButtonLogin" Style="{StaticResource ButtonPrimaryStyle}" Text="Sign In"/>        
+	                <Button IsEnabled="{Binding IsBusy}"  Command="{Binding CancelCommand}"  x:Name="ButtonCancel" Style="{StaticResource ButtonSecondaryStyle}" Text="Cancel"/>
+	                    	
+		   </StackLayout>
+
+		</StackLayout>
+	</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

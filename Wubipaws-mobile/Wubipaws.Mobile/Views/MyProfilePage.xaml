@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			x:Class="Wubipaws.Mobile.MyProfilePage"
+			xmlns:local="clr-namespace:Wubipaws.Mobile;assembly=Wubipaws.Mobile"
+			Title="My Profile"
+			x:Name="MyProfilePage"
+			xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+			Padding="8,8,8,5"
+			BackgroundColor="#37474F"
+			>
+
+	<ContentPage.Content>
+		<ScrollView>
+
+		<StackLayout>
+			<Frame BackgroundColor="White" Padding="3"  HasShadow="false" OutlineColor="Transparent">
+				<Frame.Content>
+					<StackLayout x:Name="AccountSection">
+						<local:FormHeaderBar Text="Account Details" />
+						<Label Text="{Binding [accountName]}" HorizontalTextAlignment="Center" TextColor="#CCCCCC"></Label>
+						<ContentView Padding="5">
+								<StackLayout>
+									 
+									 <Label Text="Email"></Label>
+									  <controls:ExtendedEntry
+									  	Placeholder = "Email"
+									  	MaxLength="80"
+									  	Keyboard = "Email"
+									  	Text="{Binding [email]}"
+									  	>
+									  </controls:ExtendedEntry>
+									<Label Text="Password"></Label>
+									  <controls:ExtendedEntry
+									  	Placeholder = "Password"
+									  	IsPassword = "true"
+									  	MaxLength="12"
+									  	Text="{Binding [password]}"
+									  	>
+									  </controls:ExtendedEntry>
+								</StackLayout>
+						</ContentView>
+					</StackLayout>
+
+				</Frame.Content>
+			</Frame>
+<Frame BackgroundColor="White" Padding="3"  HasShadow="false" OutlineColor="Transparent">
+			<Frame.Content>
+			<StackLayout x:Name="ProfileSection">
+						<local:FormHeaderBar Text="Profile Details" />
+						<ContentView Padding="5">
+						<StackLayout>
+				  			<Label Text="First Name"></Label>
+							  <controls:ExtendedEntry
+							  	Placeholder = "First Name"
+							  	MaxLength="80"
+							  	Text="{Binding [firstName]}">
+							  </controls:ExtendedEntry>
+							 <Label Text="Last Name"></Label>
+							  <controls:ExtendedEntry
+							  	Placeholder = "Last Name"
+							  	MaxLength="80"
+							  	Text="{Binding [lastName]}">
+							  </controls:ExtendedEntry>
+
+							<Label Text="Address"></Label>
+							  <controls:ExtendedEntry
+							  	Placeholder = "Address"
+							  	MaxLength="80"
+							  	Text="{Binding [address]}">
+							  </controls:ExtendedEntry>
+							<Label Text="City"></Label>
+							  <controls:ExtendedEntry
+							  	Placeholder = "City"
+							  	MaxLength="80"
+							  	Text="{Binding [city]}">
+							  	</controls:ExtendedEntry>
+							 <Label Text="State"></Label>
+							  <controls:ExtendedEntry
+							  	Placeholder = "State"
+							  	MaxLength="80"
+							  	Text="{Binding [state]}">
+							  	</controls:ExtendedEntry>
+							 <Label Text="Postal Code"></Label>
+							  <controls:ExtendedEntry
+							  	Placeholder = "Postal Code"
+							  	MaxLength="5"
+							  	Text="{Binding [postalCode]}">
+							  </controls:ExtendedEntry>
+ 							<Label Text="Phone Number"></Label>
+							  <controls:ExtendedEntry
+							  	Placeholder = "###-###-####"
+							  	MaxLength="12"
+							  	Keyboard="Telephone"
+							  	Text="{Binding [phoneNumber]}">
+							  </controls:ExtendedEntry>
+						</StackLayout>
+						</ContentView>
+					</StackLayout>
+			</Frame.Content>
+			</Frame>
+			<Button Style="{StaticResource ButtonPrimaryStyle}" IsEnabled="{Binding IsBusy}"  Command="{Binding SaveChangesCommand}"  Text="Save Changes"></Button>
+		</StackLayout>
+
+		</ScrollView>
+		
+	</ContentPage.Content>
+</ContentPage>

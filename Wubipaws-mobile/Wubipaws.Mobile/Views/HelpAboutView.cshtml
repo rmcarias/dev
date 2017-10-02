@@ -1,0 +1,45 @@
+﻿
+@model HybridWebViewModel
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>@Model.Title</title>
+    <meta content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content="Mobile services for your furry pawed creature"/>
+   	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  	<link type="text/css" rel="stylesheet" href="content/ionic.css"/>
+  	<style type="text/css">
+
+
+div.app-bar-breaker{
+  height:64px;
+}
+
+</style>
+  </head>
+  <body>
+<div class="content padding">
+		@if(Model.ViewData.IsHelpPage == true){
+			<section>
+				
+			</section>
+		}else{
+			<section>
+				About
+			</section>
+
+		}
+
+</div>
+
+		<script type="text/javascript">
+			function closePage(sender,e){
+				e.preventDefault();
+				//Native("closePage",JSON.stringify({action:'close'}));
+
+			}
+		</script>
+  </body>
+</html>
+

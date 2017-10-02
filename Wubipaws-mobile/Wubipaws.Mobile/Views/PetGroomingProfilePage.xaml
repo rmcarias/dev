@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+x:Class="Wubipaws.Mobile.PetGroomingProfilePage"
+xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+xmlns:local="clr-namespace:Wubipaws.Mobile;assembly=Wubipaws.Mobile"
+Padding="0,0,0,5"
+BackgroundColor="#37474F"
+Title="Pet Profile">
+<ContentPage.Content>
+<StackLayout>
+<local:FormHeaderBar HeaderFontSize="16"  HasCloseButton="true" HeaderBackgroundColor="#FAFAFA" HeaderTextColor = "#37474F" Text="Pet Profile" x:Name="ModalHeader"/>
+<ScrollView BackgroundColor="#37474F" Padding="8,0,8,0">
+
+		<StackLayout>
+
+<Frame  BackgroundColor="White" Padding="3"  HasShadow="false" OutlineColor="Transparent">
+			<Frame.Content>
+			<StackLayout BindingContext="{Binding Path=PetGroomingDetails.GroomingProfileDocument}" x:Name="PetGroomingProfileSection">
+
+						<local:FormHeaderBar Text="GROOMING DETAILS" />
+						<ContentView Padding="5">
+						<StackLayout>
+				  			<Label Text="Has your pet ever been groomed before? If yes, enter date."></Label>
+				  			<StackLayout Orientation="Horizontal">
+				  				<Switch VerticalOptions="Center" IsToggled="{Binding groomedBefore}"></Switch>
+				  				 <controls:ExtendedEntry
+										  	Placeholder = "MM/DD/YYYY"
+										  	MaxLength="10"
+										  	HorizontalOptions="FillAndExpand" 
+										  	Text="{Binding lastGroomingDate}">
+							  </controls:ExtendedEntry>
+				  			</StackLayout>
+
+				  			<Label Text="Does your pet have a history of aggression or fear of biting? If yes, please explain."></Label>
+				  			<StackLayout Orientation="Horizontal">
+				  				<Switch VerticalOptions="Center" IsToggled="{Binding aggressiveBehavior.answer}"></Switch>
+				  				 <controls:ExtendedEntry										  	
+										  	MaxLength="80"
+										  	HorizontalOptions="FillAndExpand" 
+										  	Text="{Binding aggressiveBehavior.detailsText}">
+							  </controls:ExtendedEntry>
+				  			</StackLayout>
+
+				  			<Label Text="Does your pet have any allergies (skin,food, etc.)? If yes, please explain."></Label>
+				  			<StackLayout Orientation="Horizontal">
+				  				<Switch VerticalOptions="Center" IsToggled="{Binding allergies.answer}"></Switch>
+				  				 <controls:ExtendedEntry
+										  	
+										  	MaxLength="80"
+										  	HorizontalOptions="FillAndExpand" 
+										  	Text="{Binding allergies.detailsText}">
+							  </controls:ExtendedEntry>
+				  			</StackLayout>
+
+				  			<Label Text="Is your pet currently on any medications? If yes, please explain."></Label>
+				  			<StackLayout Orientation="Horizontal">
+				  				<Switch VerticalOptions="Center" IsToggled="{Binding medications.answer}"></Switch>
+				  				 <controls:ExtendedEntry
+										  	
+										  	MaxLength="80"
+										  	HorizontalOptions="FillAndExpand" 
+										  	Text="{Binding medications.detailsText}">
+							  </controls:ExtendedEntry>
+				  			</StackLayout>
+
+				  			<Label Text="Has your pet ever had any surgery(s)? If yes, please explain."></Label>
+				  			<StackLayout Orientation="Horizontal">
+				  				<Switch VerticalOptions="Center" IsToggled="{Binding surgeries.answer}"></Switch>
+				  				 <controls:ExtendedEntry
+										  	
+										  	MaxLength="80"
+										  	HorizontalOptions="FillAndExpand" 
+										  	Text="{Binding surgeries.detailsText}">
+							  </controls:ExtendedEntry>
+				  			</StackLayout>
+							<Label Text="Please check any other conditions that affect your pet."></Label>
+							<ContentView Padding="0,8,0,8">
+							<ListView HeightRequest="405"  x:Name="OtherConditionsList" ItemsSource="{Binding otherConditions}"   RowHeight="45">
+							    <ListView.ItemTemplate>
+							      <DataTemplate>
+							      	<ViewCell>
+							      		<StackLayout Orientation="Horizontal">
+							  				<Label FontSize="Small" VerticalOptions="Center" HorizontalOptions="FillAndExpand" FontAttributes="Bold" Text="{Binding Path=conditionName, Converter={StaticResource splitPascalCase}}"></Label>
+							  				<Switch VerticalOptions="Center" HorizontalOptions="End" IsToggled="{Binding Path=isAffected}"></Switch>
+
+							  			</StackLayout>
+							      	</ViewCell>
+							      </DataTemplate>
+							    </ListView.ItemTemplate>
+							  </ListView>
+							</ContentView>
+
+ 							<Label Text="Anything else you would like us to know?"></Label>
+ 								<Editor
+
+ 								BackgroundColor="#EEEEEE"
+							   	HeightRequest = "80"
+							  	Text="{Binding notes}">
+							  </Editor>
+						</StackLayout>
+						</ContentView>
+					</StackLayout>
+			</Frame.Content>
+			</Frame>
+			<Button  Style="{StaticResource ButtonPrimaryStyle}" IsEnabled="{Binding IsBusy,Converter={StaticResource cnvInvert}}"  Command="{Binding SaveGroomingProfileChangesCommand}"  Text="Add Changes to Profile"></Button>
+			<Button  IsVisible="false"  Style="{StaticResource ButtonSecondaryStyle}"   Command="{Binding CancelGroomingProfileChanges}"  Text="Cancel"></Button>
+			
+		</StackLayout>
+
+</ScrollView>
+</StackLayout>
+	
+		
+	</ContentPage.Content>
+	
+</ContentPage>

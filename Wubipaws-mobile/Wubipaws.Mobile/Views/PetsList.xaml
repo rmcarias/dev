@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+x:Class="Wubipaws.Mobile.PetsList"
+xmlns:local="clr-namespace:Wubipaws.Mobile;assembly=Wubipaws.Mobile" 
+xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+Title="My Pets"
+Icon="dog45.png">
+	<ContentPage.Content>
+<StackLayout Spacing="1">
+<local:FormHeaderBar HeaderFontSize="16"  HasCloseButton="true" HeaderBackgroundColor="#FAFAFA" HeaderTextColor = "#37474F" Text="My Pets" x:Name="ModalHeader"/>
+<ListView x:Name="PetList"  
+	ItemsSource="{Binding MyPets}"
+	Header="{Binding HeaderText}"
+  ItemTapped="OnItemSelected"
+  RowHeight="82">
+<ListView.HeaderTemplate >
+      <DataTemplate>
+        <StackLayout Orientation="Horizontal"
+            Padding="10,5,5,10"
+            BackgroundColor="#E91E63">
+          <Label FontAttributes="Bold" 
+          TextColor="White"
+          FontSize="Medium" Text="{Binding .}"/><!-- refers to "Binding Intro" in the `Header` attribute -->
+        </StackLayout>
+      </DataTemplate>
+    </ListView.HeaderTemplate>
+    <ListView.ItemTemplate>
+      <DataTemplate>
+      	<ViewCell>
+      		<StackLayout Spacing="3" Orientation="Horizontal">
+      				<ContentView Padding="10">
+      					<Image WidthRequest="45" HeightRequest="45" Aspect="AspectFit" Source="{local:ImageResource dog45.png}"></Image>      					
+      				</ContentView>
+				<StackLayout HorizontalOptions="FillAndExpand" Spacing="3" Padding="5,5,5,5">
+			   		<Label  TextColor="#E91E63" HorizontalTextAlignment="Start" FontSize="Large" FontAttributes="Bold" Text="{Binding name}" LineBreakMode="TailTruncation"></Label>
+			   		<Label  HorizontalTextAlignment="Start" FontSize="Small"  Text="{Binding description}" LineBreakMode="TailTruncation"></Label>				
+				</StackLayout>
+
+      			<Image HorizontalOptions="End" HeightRequest="32"   WidthRequest="32" Aspect="AspectFit" Source="{local:ImageResource ios_arrow_right.png.png}"/>
+      			
+      		</StackLayout>
+      	</ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+</StackLayout>
+
+	</ContentPage.Content>
+</ContentPage>

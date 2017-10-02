@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+Title="Register"
+xmlns:local="clr-namespace:Wubipaws.Mobile;assembly=Wubipaws.Mobile"
+x:Class="Wubipaws.Mobile.RegisterPage"
+BackgroundColor="#37474F">
+	<ContentPage.Content>
+	  <StackLayout>
+	  	<local:HeaderView />
+	  		<ScrollView>
+			<StackLayout Padding="8,0,8,0">
+				 <Frame BackgroundColor="White" Padding="3"  HasShadow="false" OutlineColor="Transparent">
+				 	<Frame.Content>
+				 			 <StackLayout Spacing="0">					 
+								 	<local:FormHeaderBar Text="Register" />
+		                          <ContentView>
+			                        <ContentView Padding="5">
+			                         	<StackLayout Spacing="0">
+			                         	    
+			                         	    <local:CustomExtendedEntry 
+			                         	    	Placeholder="Full Name" 
+					                            HasBorder="true"
+												MaxLength="80"
+											    BorderColor="#f7f7f7"
+												HasRoundedBorder="false"
+												x:Name="TextName"
+					                            Text="{Binding Name}" />
+			                         	  
+			                         	    <local:CustomExtendedEntry  
+			                         	    	Placeholder="MyEmail@wubipaws.com" 
+					                            HasBorder="true"
+												MaxLength="80"
+												BorderColor="#f7f7f7"
+												HasRoundedBorder="false"
+												x:Name="TextEmail"
+					                            Text="{Binding UserEmail}" />
+					                         <StackLayout Orientation="Horizontal" Spacing="8">
+					                         	<Button HorizontalOptions="EndAndExpand" 
+														Text="Show Password?" 
+														FontSize="Small"
+														BorderWidth="0"
+														BorderColor="Transparent"
+														TextColor="Navy"></Button>
+												
+											</StackLayout>
+											 								
+											  <local:CustomExtendedEntry 
+											  	Placeholder="Mysecurepassword" 
+												BorderColor="#f7f7f7"
+												HasRoundedBorder="false"	
+					                            HasBorder="true"
+					                            HorizontalTextAlignment="Start"
+					                            MaxLength="12"
+					                            x:Name="TextPassword"
+					                            IsPassword="true"
+					                            Text="{Binding UserPassword}" />
+					                          <Label FontSize="Small"
+											 		TextColor="#607D8B"
+											 		Text="{Binding UserPassword, Mode=TwoWay}"
+											 		IsVisible="{Binding ConfirmPassword}"/>
+										
+
+			                         	</StackLayout>
+			                        </ContentView>
+		                    </ContentView>
+							
+							</StackLayout>
+				 	</Frame.Content>
+				 </Frame>
+				<Button IsEnabled="{Binding IsBusy}" Text="Register" Style="{StaticResource ButtonPrimaryStyle}"  Command="{Binding RegisterCommand}" />
+				<Button IsEnabled="{Binding IsBusy}" Text="Cancel" Style="{StaticResource ButtonSecondaryStyle}"  Command="{Binding CancelCommand}" />
+
+			</StackLayout>
+		</ScrollView>
+	  </StackLayout>
+	
+	</ContentPage.Content>
+</ContentPage>

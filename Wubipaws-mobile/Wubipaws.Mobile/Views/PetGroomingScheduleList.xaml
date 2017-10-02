@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+xmlns:local="clr-namespace:Wubipaws.Mobile;assembly=Wubipaws.Mobile" 
+xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+Title="Pet Services"
+x:Class="Wubipaws.Mobile.PetGroomingScheduleList">
+	<ContentPage.Content>
+	<StackLayout Spacing="1">
+	<Label x:Name="UnauthorizedText" 
+				IsVisible="false"
+				Text="Before scheduling any grooming services, you must first add your pet to our system and complete their basic and grooming. Please tap on the 'My Pets' section to complete this process.">
+		</Label>
+		<ContentView Padding="0" x:Name="GroomingSelectionViewContainer"></ContentView>
+		<ListView  x:Name="PetGroomingServicesList"  
+ItemsSource="{Binding PetServicesGroomingSlots}"   
+ItemTapped="OnItemSelected"
+ Header="{Binding SelectedGroomingDate}"
+  RowHeight="40">
+  <ListView.HeaderTemplate >
+      <DataTemplate>
+        <StackLayout Orientation="Horizontal"
+            Padding="10"
+            BackgroundColor="#E91E63">
+		    <Label FontAttributes="Bold" 
+          TextColor="White"
+          HorizontalOptions="FillAndExpand"
+          VerticalOptions="Center"
+          FontSize="Medium" Text="GROOMING SCHEDULE"/>
+          <Label FontAttributes="Bold" 
+          TextColor="#37474F"
+          VerticalOptions="Center"
+          FontSize="Small" Text="{Binding .}"/><!-- refers to "Binding Intro" in the `Header` attribute -->
+        </StackLayout>
+      </DataTemplate>
+    </ListView.HeaderTemplate>
+    <ListView.ItemTemplate>
+      <DataTemplate>
+      	<ViewCell>
+      		<StackLayout Padding="8,8,10,8" Orientation="Horizontal">
+      		<Label HorizontalOptions="FillAndExpand"  VerticalOptions="Center" Text="{Binding GroomingTimeSlotText}"></Label>
+      		 <local:LabelFontIcon
+			  	FontSize="Medium"
+			  	FontFamily="fontawesome"
+			  	TextColor="#00B210"
+			  	Text="{Binding IconText}"
+			  	VerticalOptions="Center">
+			  </local:LabelFontIcon>
+      		</StackLayout>
+      	</ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+		
+	</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
+	

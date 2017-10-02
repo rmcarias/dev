@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+x:Class="Wubipaws.Mobile.PetProfilePage"
+Title="Pet Profile"
+xmlns:local="clr-namespace:Wubipaws.Mobile;assembly=Wubipaws.Mobile"
+xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+Padding="8,8,8,5"
+BackgroundColor="#37474F">
+<ContentPage.Content>
+	<ScrollView>
+
+		<StackLayout>
+
+<Frame BackgroundColor="White" Padding="3"  HasShadow="false" OutlineColor="Transparent">
+			<Frame.Content>
+			<StackLayout BindingContext="{Binding Path=PetDetails.ProfileDocument}" x:Name="PetProfileSection">
+
+						<local:FormHeaderBar Text="YOUR PET'S DETAILS" />
+						<ContentView   Padding="5">
+						<StackLayout>
+				  			<Label Text="Name"></Label>
+							  <controls:ExtendedEntry
+							  	Placeholder = "Name"
+							  	Text="{Binding name, Mode=TwoWay}">
+							  </controls:ExtendedEntry>
+							 <Label Text="Breed"></Label>
+							  <controls:ExtendedEntry
+							  	Placeholder = "Breed"
+							  	Text="{Binding breed}">
+							  </controls:ExtendedEntry>
+							<Label Text="Gender"></Label>
+							  <controls:ExtendedEntry
+							  	Placeholder = "Gender"
+							  	MaxLength="6"
+							  	Text="{Binding gender}">
+							  </controls:ExtendedEntry>
+							<Label Text="Color"></Label>
+							  <controls:ExtendedEntry
+							  	Placeholder = "Color"
+							  	Text="{Binding color}">
+							  	</controls:ExtendedEntry>
+							  	<StackLayout   Orientation="Horizontal">
+								  	<Label VerticalOptions="Center" HorizontalOptions="FillAndExpand" Text="Age Years/Months"></Label>
+								 	 <controls:ExtendedEntry
+								  	Placeholder = "##"
+								  	MaxLength="2"
+								  	WidthRequest="50"
+								  	Text="{Binding Path=age.years}">
+								  	</controls:ExtendedEntry>
+									  <controls:ExtendedEntry
+								  	Placeholder = "##"
+								  		MaxLength="2"
+								  			WidthRequest="50"
+								  	Text="{Binding Path=age.months}">
+								  </controls:ExtendedEntry>
+							  	</StackLayout>
+							
+ 							<Label Text="Weight"></Label>
+							  <controls:ExtendedEntry
+							  	MaxLength="5"
+							  	Placeholder = "Weight lbs"
+							  	Text="{Binding weight}">
+							  </controls:ExtendedEntry>
+						</StackLayout>
+						</ContentView>
+					</StackLayout>
+			</Frame.Content>
+			</Frame>
+			<Button  Style="{StaticResource ButtonPrimaryStyle}" IsEnabled="{Binding IsBusy,Converter={StaticResource cnvInvert}}"  Command="{Binding SaveChangesCommand}"  Text="Save Changes"></Button>
+			<Button IsVisible="{Binding IsNew,Converter={StaticResource cnvInvert}}"  Style="{StaticResource ButtonSecondaryStyle}"   Command="{Binding ViewGroomingProfileCommand}"  Text="View Grooming Profile Details"></Button>
+			
+		</StackLayout>
+
+		</ScrollView>
+		
+	</ContentPage.Content>
+</ContentPage>

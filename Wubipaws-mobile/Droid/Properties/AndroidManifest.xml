@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.mcwebco.wubipaws.mobile" android:versionCode="1" android:versionName="1.0.0">
+	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="21" />
+	<application android:label="Wubi Paws" android:theme="@style/WubiPawsAppTheme" android:icon="@drawable/icon">
+	</application>
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
+	<uses-permission android:name="android.permission.CLEAR_APP_USER_DATA" />
+	<uses-permission android:name="android.permission.DELETE_CACHE_FILES" />
+	<uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+	<uses-permission android:name="android.permission.STATUS_BAR" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WRITE_OWNER_DATA" />
+</manifest>

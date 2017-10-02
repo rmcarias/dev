@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+x:Class="Wubipaws.Mobile.PetGroomingConfirmationPage"
+xmlns:local="clr-namespace:Wubipaws.Mobile;assembly=Wubipaws.Mobile" 
+xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+Title="Grooming Confirmation"
+>
+<ContentPage.Content>
+<StackLayout  Spacing="0">
+<local:FormHeaderBar 
+	HeaderFontSize="16"  
+	HasCloseButton="true"  
+	Text="Grooming Confirmation" 
+	x:Name="ModalHeader"/>
+	<ScrollView VerticalOptions="FillAndExpand">
+<StackLayout  Spacing="0">
+	
+	<ContentView BackgroundColor="#FAFAFA" Padding="10,10,10,10">
+		<StackLayout Spacing="0">
+			 <Label TextColor="#37474F" 
+			 HorizontalOptions="FillAndExpand" 
+			 VerticalOptions="Center" 
+			 FontAttributes="Bold"
+			 Text="{Binding GroomingConfScheduleText}"></Label>
+			
+		</StackLayout>
+	</ContentView>
+	<ContentView>
+		<Label HeightRequest="2" BackgroundColor="Gray" HorizontalOptions="FillAndExpand"></Label>	
+	</ContentView>
+	<ContentView Padding="10">
+		<StackLayout>
+			<Label Text="{Binding DeclarationText}" HorizontalOptions="FillAndExpand"></Label>
+			<StackLayout Orientation="Horizontal">
+				<Label FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="EndAndExpand"  Text="Accept"></Label>
+				<Switch HorizontalOptions="End"   IsToggled="{Binding VaccinationsCurrent}"></Switch>
+					
+			</StackLayout>
+		</StackLayout>
+	</ContentView>
+	<ContentView>
+		<Label HeightRequest="2" BackgroundColor="Gray" HorizontalOptions="FillAndExpand"></Label>	
+	</ContentView>
+	<ContentView Padding="10,8,10,8">
+		<StackLayout x:Name="GroomingProfilDetailsContainer"  Spacing="3">
+			 <Label TextColor="#37474F" 
+			 HorizontalOptions="FillAndExpand" 
+			 VerticalOptions="Center"
+			 FontSize="Medium" 
+			 Text="Date vaccines will expire"></Label>
+			 <StackLayout Orientation="Horizontal">
+			 	<Label Text="Rabies" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+			 	<DatePicker 
+			 	x:Name="datePickerRabies"  
+			 	Date="{Binding Path=Rabies, Mode=TwoWay}" 
+			 	Format="d"
+			 	WidthRequest="150" />
+
+			 </StackLayout>	
+			 <StackLayout Orientation="Horizontal">
+			 	<Label Text="Bordetella" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+			 	<DatePicker 
+			 	x:Name="datePickerBordetella"  
+			 	Date="{Binding Path=Bordetella, Mode=TwoWay}" 
+			 	Format="d"
+			 	WidthRequest="150" />
+			 
+			 </StackLayout>	
+			 <StackLayout Orientation="Horizontal">
+			 	<Label Text="DHLPP" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Label>
+			 	<DatePicker 
+			 	x:Name="datePickerDHLPP"  
+			 	Date="{Binding Path=DHLPP, Mode=TwoWay}" 
+			 	Format="d"
+			 	WidthRequest="150" />
+			 
+			 </StackLayout>	
+		</StackLayout>
+	</ContentView>
+	<ContentView>
+		<Label HeightRequest="2" BackgroundColor="Gray" HorizontalOptions="FillAndExpand"></Label>	
+	</ContentView>
+	<ContentView Padding="10">
+		<StackLayout>
+		<Label Text="{Binding WaiverText}" HorizontalOptions="FillAndExpand"></Label>
+		<StackLayout Orientation="Horizontal">
+				<Label FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="EndAndExpand"  Text="Accept"></Label>
+				<Switch HorizontalOptions="End"  IsToggled="{Binding WaiverAccepted}"></Switch>
+					
+			</StackLayout>
+		</StackLayout>
+	</ContentView>
+	<ContentView>
+		<Label HeightRequest="2" BackgroundColor="Gray" HorizontalOptions="FillAndExpand"></Label>	
+	</ContentView>
+	<ContentView Padding="10">
+		<StackLayout>
+		<Label Text="Grooming Notes"></Label>
+		<Editor
+			BackgroundColor="#EEEEEE"
+		   	HeightRequest = "80"
+		  	Text="{Binding Notes}">
+		  </Editor>
+		</StackLayout>
+
+	</ContentView>
+	<ContentView>
+		<Label HeightRequest="2" BackgroundColor="Gray" HorizontalOptions="FillAndExpand"></Label>	
+	</ContentView>
+	<ContentView VerticalOptions="FillAndExpand" BackgroundColor="#37474F" Padding="10">
+		<StackLayout>
+		<Label TextColor="White" FontAttributes="Bold" Text="By clicking 'Schedule', you declare that the above information is true."></Label>	
+		<Button Text="Schedule" Command="{Binding ScheduleGroomingCommand}" Style="{StaticResource ButtonPrimaryStyle}"></Button>
+		</StackLayout>
+
+	</ContentView>
+</StackLayout>
+</ScrollView>
+</StackLayout>
+</ContentPage.Content>
+</ContentPage>
